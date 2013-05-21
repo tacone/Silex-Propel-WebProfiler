@@ -17,7 +17,7 @@
     "autoload": {
         "psr-0": { "tacone\\Silex\\PropelWebProfiler": "" }
     },
-    "target-dir": "tacone/Silex/PropelWebProfiler",
+    
     "extra": {
         "branch-alias": {
             "dev-master": "0.1.x-dev"
