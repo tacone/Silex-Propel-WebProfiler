@@ -47,8 +47,11 @@ class PropelDataCollector extends DataCollector
     public function __construct(PropelLogger $logger)
     {
         $this->logger = $logger;
+        if (!Propel::isInit())
+        {
+            throw new \LogicException("Propel not initialized yet, please register PropelWebProfilerServiceProvider AFTER the PropelServiceProvider");
+        }
         $this->propelConfiguration = Propel::getConfiguration(PropelConfiguration::TYPE_OBJECT);
-        
         $this->setupDebugging($logger);
     }
 
