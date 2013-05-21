@@ -1,0 +1,26 @@
+{
+    "name": "Silex-Propel-WebProfiler",
+    "description": "Extending Silex WebProfiler with Propel information",
+    "homepage": "https://github.com/tacone/Silex-Propel-WebProfiler",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "tacone",
+            "email": "tacone@gmail.com"
+        }
+    ],
+    "require": {
+        "silex/silex": "~1.0",
+        "propel/propel-service-provider": "0.0.*",
+        "silex/web-profiler"    : "1.0.*@dev",
+    },
+    "autoload": {
+        "psr-0": { "tacone\\Silex\\PropelWebProfiler": "" }
+    },
+    "target-dir": "tacone/Silex/PropelWebProfiler",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1.x-dev"
+        }
+    }
+}

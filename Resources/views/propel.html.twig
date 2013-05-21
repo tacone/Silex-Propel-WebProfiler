@@ -1,0 +1,107 @@
+{% extends '@WebProfiler/Profiler/layout.html.twig' %}
+
+{% block toolbar %}
+    {# the web debug toolbar content #}
+    {% set icon %}
+        <img alt="Propel" src="data:image/png;base64,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" />
+        <span class="sf-toolbar-status">{{ collector.querycount }}</span>
+    {% endset %}
+    {% set text %}
+        <div class="sf-toolbar-info-piece">
+            <b>DB Queries</b>
+            <span>{{ collector.querycount }}</span>
+        </div>
+        <div class="sf-toolbar-info-piece">
+            <b>Query time</b>
+            <span>{{ '%0.2f'|format(collector.time * 1000) }} ms</span>
+        </div>
+{% endset %}
+    {% include '@WebProfiler/Profiler/toolbar_item.html.twig' with { 'link': profiler_url } %}
+{% endblock %}
+
+{% block menu %}
+    {# the menu content #}
+    <span class="label">
+        <span class="icon"><img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAeCAMAAAB61OwbAAAABGdBTUEAALGPC/xhBQAAAppQTFRFtra2w8PDw8PDoqKivb29t7e3wsLCsrKyra2turq6ubm5zs7Ox8fH0tLS+fn539/fz8/Pt7e30NDQu7u73Nzc8PDwyMjI1tbW19fX2traysrK////0tLSyMjIxcXF////tra21NTU2dnZwsLC6Ojo1dXV2tranZ2dw8PD1NTU////z8/PycnJsbGx////srKy3d3dv7+/pKSkv7+/w8PD3Nzcvr6+ubm5sLCw4uLi29vb5eXl4eHhvb29sbGxz8/PvLy8wcHBz8/Ptra2xsbGqampoqKi0dHRxsbG0dHRyMjI19fX////y8vLvLy8vb297e3tzs7OxsbGv7+/0NDQ////xsbGzs7O2dnZvr6+4uLizs7O19fXoKCgu7u7s7OzwsLCn5+f2traz8/PqKio2tra29vb4uLir6+v19fXwMDA2tra3t7ex8fHwcHBtLS03NzcqKion5+fxcXFuLi4qqqqzMzMn5+f1tbWrKys19fX4ODgw8PD////v7+/1NTU/////v7+u7u7////vb29ycnJ////2NjY1NTU4+Pjx8fHzs7OpKSk6urq39/f29vb4+PjtLS0rq6u6urq4+Pj7+/v6+vrxcXFwcHBvLy8zc3NxcXF0dHRxsbGzc3N7+/v9/f3ubm50NDQlJSUr6+v9fX13d3dtLS019fXysrKwsLC1dXVxcXF6enpurq63Nzc3t7e8/Pz4ODg3t7e////vr6+tbW10NDQAAAAw8PDoaGhu7u7w8PDvb29o6OjwsLCwsLCtbW1o6OjoaGhtra2w8PDr6+vo6Ojtra2t7e3wsLCoaGhoqKiwsLCvb29vb29tbW1w8PDnZ2dtbW1sLCwqKior6+vn5+foaGhpKSkvb29srKyyMjIubm5JmG/mwAAALl0Uk5T/v78/v78mdHtxsI/vm4sSJC9OMU4L8BESTtJF4fWvQiGomjzJy8I/blTBT4BAQuZV+jUZ85Qb6z8ZiRTG7K9esuzoBTDLvyIvHE9XgnDQvEiLgWoKgEul2omeSoB75aaN94YBdcPSS28D15CNihvd2DY7iedxacBrrBfBksKEYUHAXwUOTARPAGgbp7zDUcBdAbxBjMBIV5/AyJ3WMFgRgGnHQHQKCXINwS9AQEBAUo0Bw4BE96aAQC1W3vtAAABmElEQVQoz2PYQQAwUKogBreCLXPmLlm+AqsJQUDc3j3p4MHbt5dhUbBGd8cOr+Ddt69cOXZ33o6V2EyQMr97+9iVK1eOzMbqSG7Bg1eO3b59++6RLnRfbAdiIa7bV24fPHbM0TMkFSyCULC2fMcOSeEjB+9ycAqIQIQ60EwItN2/l52Nlw/IlDaw941AC6gpZVsdzMS3gJiiMoZ3du4NR1WwdEJVpA+YxS92d+feu3v3pqMqmFwNprQkeHbu3wuUv5OGNS405XbuBYL9d/yjsEWWqQZIeud+F3fvALTY7AdiaxOg4TuVFbVtwEKNSArWAnG0x52dR2SVVNSAbGdXvyQ0E/oq9m91stQDMeWN7c5cvVmAqmB+Z312KJilqmB09fr164VtKAoWTGuA8Kz0r98ESu8604qR5JKBOGzb9X1A6Zs3i1qwpcmEeJDs1V2JlU2zduxYh64gZxvQ6quxGfk1zdhSdV3JsX1XU+KyimuBnMVr0BUsmtFzrDQvNxPEnzhzO4YJ61ctnN6LJ+Ns2rCR0qy3Ga8CAKy5fjjptvXpAAAAAElFTkSuQmCC" /></span>
+        <strong>Propel</strong>
+        <span class="count">
+            <span>{{ collector.querycount }}</span>
+            <span>{{ '%0.0f'|format(collector.time * 1000) }} ms</span>
+        </span>
+    </span>
+{% endblock %}
+
+{% block panel %}
+    {# the panel content #}
+    <style type="text/css">
+    .SQLKeyword {
+        color: blue;
+        white-space: nowrap;
+    }
+    .SQLName {
+        color: #464646;
+        white-space: nowrap;
+    }
+    .SQLInfo, .SQLComment {
+        color: gray;
+        display: block;
+        font-size: 0.9em;
+        margin: 3px 0;
+    }
+
+    .SQLExplain {
+       margin: 5px;
+    }
+
+    .SQLExplain .error {
+        background-color: #F2DEDE;
+        border-color: #EED3D7;
+        color: #B94A48;
+        padding: 8px 35px 8px 14px;
+        font-weight: bold;
+    }
+
+    #content .SQLExplain h2 {
+        font-size: 17px;
+        margin-bottom: 0;
+    }
+    </style>
+
+    <h2>Queries</h2>
+    <table summary="Show logged queries">
+        <thead>
+            <tr>
+                <th>SQL queries</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% if not collector.querycount %}
+            <tr><td>No queries.</td></tr>
+        {% else %}
+            {% for i, query in collector.queries %}
+            <tr>
+                <td>
+                    <a name="propel-query-{{ i }}" ></a>
+                    <code>{{ collector.formatSql(query.sql)|raw }}</code>
+                    {# <code>{{ query.sql }}</code> #}
+                    {% if app.request.query.has('query') and app.request.query.get('query') == i %}
+                        <div class="SQLExplain">
+                        {{ collector.explainAction(app,app.request.query.get('connection'), token, app.request.query.get('query')) | raw }}
+                        </div>
+                    {% endif %}
+                    <div class="SQLInfo">
+                        Time: {{ query.time }} - Memory: {{ query.memory }} - Connection: {{ query.connection }}
+
+                        {% if app.request.query.get('query', -1) != i %}
+                            - <a href="{{ path('_profiler', {'panel': 'propel', 'token': token, 'connection': query.connection, 'query': i}) }}#propel-query-{{ i }}">Explain the query</a>
+                        {% endif %}
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+
+    {{ collector.configurationAction(app)|raw }}
+{% endblock %}
