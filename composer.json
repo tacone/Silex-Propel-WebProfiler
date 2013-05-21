@@ -1,5 +1,5 @@
 {
-    "name": "Silex-Propel-WebProfiler",
+    "name": "silex/propel-web-profiler",
     "description": "Extending Silex WebProfiler with Propel information",
     "homepage": "https://github.com/tacone/Silex-Propel-WebProfiler",
     "license": "MIT",
