@@ -44,6 +44,8 @@ if ($app['debug'] && isset($app['cache.path'])) {
 
 ## Notes:
 
+Please note this requires php5.4.
+
 Despite doing my best I could not understand how to fully extract the Propel configuration. Because of that, many `?` will show in the configuration section of the Propel panel. That's perfectly fine. If you know how to get the data, feel free to send me a Pull Request.
 
 *Also note that using the Web Profiler makes Silex very slow.*
