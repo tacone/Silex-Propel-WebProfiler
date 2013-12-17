@@ -10,9 +10,9 @@
         }
     ],
     "require": {
-        "silex/silex": "~1.0",
-        "propel/propel-service-provider": "0.0.*",
-        "silex/web-profiler"    : "1.0.*@dev"
+        "silex/silex": "1.*",
+        "propel/propel-service-provider": "dev-master",
+        "silex/web-profiler"    : "1*@dev"
     },
     "autoload": {
         "psr-0": { "tacone\\Silex\\PropelWebProfiler": "" }
